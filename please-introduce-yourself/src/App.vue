@@ -1,9 +1,17 @@
 <template>
-  <div id="app">
-    <div v-for="message in messages" v-bind:key="message.id">
-      <h4>{{ message.title }}</h4>
-      <p>{{ message.text }}</p>
-      <p>{{ message.timestamp }}</p>
+  <div id="app" class="jumbotron">
+    <div class="container">
+      <h1>Hello! Nice to meet you!</h1>
+      <hr>
+      <div class="card-group">
+        <div class="card" v-for="message in messages" v-bind:key="message.id">
+          <div class="card-block">
+            <h5 class="card-title">{{ message.title }}</h5>
+            <p class="card-text">{{ message.text }}</p>
+            <p class="card-text"><small class="text-muted">Added on {{ message.timestamp }}</small></p>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- <router-view/> -->
   </div>
