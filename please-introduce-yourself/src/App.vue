@@ -3,12 +3,12 @@
     <div class="container">
       <h1>Hello! Nice to meet you!</h1>
       <hr />
-      <form action="">
+      <form @submit="addMessage">
         <div class="form-group">
-          <input class="form-control" type="text" maxlength="40" autofocus="true" placeholder="Please Introduce Yourself :)">
+          <input class="form-control" v-model="newMessage.title" type="text" maxlength="40" autofocus="true" placeholder="Please Introduce Yourself :)">
         </div>
         <div class="form-group">
-          <textarea class="form-control" placeholder="Leave your message!" rows="3"></textarea>
+          <textarea class="form-control" v-model="newMessage.text" placeholder="Leave your message!" rows="3"></textarea>
         </div>
         <button class="btn btn-primary btn-block" type="submit">Send</button>
       </form>
@@ -48,6 +48,22 @@ let db = app.database()
 let messagesRef = db.ref('messages')
 export default {
   name: 'app',
+  data () {
+    return  {
+      newMessage: {
+        title: '',
+        text: '',
+        timestamp: null
+      }
+    }
+  },
+  methods: {
+    addMessage (e) {
+      e.preventDefault()
+      this.newMessage.timestamp = Date.now()
+      messagesRef.push(this.newMessage)
+    }
+  },
   firebase: {
     messages: messagesRef
   }
