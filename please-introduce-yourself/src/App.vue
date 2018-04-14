@@ -60,8 +60,14 @@ export default {
   methods: {
     addMessage (e) {
       e.preventDefault()
+      if (this.newMessage.title === '') {
+        return // nothing - kill function
+      }
       this.newMessage.timestamp = Date.now()
       messagesRef.push(this.newMessage)
+      this.newMessage.title = ''
+      this.newMessage.text = ''
+      this.newMessage.timestamp = null
     }
   },
   firebase: {
