@@ -1,10 +1,10 @@
-import moment from 'moment';
+import moment from 'moment'
 
 function dateToString (date) {
   if (date) {
     return moment(date).format('MMMM Do YYYY, h:mm:ss a')
   }
-  return''
+  return ''
 }
 
 export { dateToString }

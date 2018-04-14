@@ -13,7 +13,15 @@
         <button class="btn btn-primary btn-block" type="submit">Send</button>
       </form>
       <hr />
-      <div class="card-group">
+      <div class="card-coloumns">
+        <div class="card card-outline-success p-4">
+          <div class="card-block">
+            <h5 class="card-title">Hello!</h5>
+            <p class="card-text">This is our sticky card!</p>
+            <p class="card-text"><small class="text-muted">Time is {{ dateToString(Date.now()) }}</small></p>
+          </div>
+        </div>
+
         <div class="card p-4" v-for="message in messages" v-bind:key="message.id">
           <div class="card-block">
             <h5 class="card-title">{{ message.title }}</h5>
@@ -34,7 +42,8 @@
 </script>
 <script>
 import Firebase from 'firebase'
-import { dateToString } from '../utils/utils'
+import { dateToString } from './utils/utils'
+import Card from './components/Card'
 
 let config = {
   apiKey: "AIzaSyCvg-CVhjGw0nwkcO1BO7a0VhZkOIILRbw",
