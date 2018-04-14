@@ -18,7 +18,7 @@
           <div class="card-block">
             <h5 class="card-title">{{ message.title }}</h5>
             <p class="card-text">{{ message.text }}</p>
-            <p class="card-text"><small class="text-muted">Added on {{ message.timestamp }}</small></p>
+            <p class="card-text"><small class="text-muted">Added on {{ dateToString(message.timestamp) }}</small></p>
           </div>
         </div>
       </div>
@@ -34,6 +34,7 @@
 </script>
 <script>
 import Firebase from 'firebase'
+import { dateToString } from '../utils/utils'
 
 let config = {
   apiKey: "AIzaSyCvg-CVhjGw0nwkcO1BO7a0VhZkOIILRbw",
@@ -68,7 +69,8 @@ export default {
       this.newMessage.title = ''
       this.newMessage.text = ''
       this.newMessage.timestamp = null
-    }
+    },
+    dateToString: dateToString,
   },
   firebase: {
     messages: messagesRef
