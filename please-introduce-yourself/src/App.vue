@@ -4,7 +4,7 @@
       <h1>Hello! Nice to meet you!</h1>
       <hr>
       <div class="card-group">
-        <div class="card" v-for="message in messages" v-bind:key="message.id">
+        <div class="card p-4" v-for="message in messages" v-bind:key="message.id">
           <div class="card-block">
             <h5 class="card-title">{{ message.title }}</h5>
             <p class="card-text">{{ message.text }}</p>
