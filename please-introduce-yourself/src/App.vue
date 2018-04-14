@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div v-for="message in messages">
+    <div v-for="message in messages" v-bind:key="message.id">
       <h4>{{ message.title }}</h4>
       <p>{{ message.text }}</p>
       <p>{{ message.timestamp }}</p>
