@@ -2,7 +2,17 @@
   <div id="app" class="jumbotron">
     <div class="container">
       <h1>Hello! Nice to meet you!</h1>
-      <hr>
+      <hr />
+      <form action="">
+        <div class="form-group">
+          <input class="form-control" type="text" maxlength="40" autofocus="true" placeholder="Please Introduce Yourself :)">
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" placeholder="Leave your message!" rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Send</button>
+      </form>
+      <hr />
       <div class="card-group">
         <div class="card p-4" v-for="message in messages" v-bind:key="message.id">
           <div class="card-block">
