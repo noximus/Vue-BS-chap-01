@@ -14,21 +14,9 @@
       </form>
       <hr />
       <div class="card-coloumns">
-        <div class="card card-outline-success p-4">
-          <div class="card-block">
-            <h5 class="card-title">Hello!</h5>
-            <p class="card-text">This is our sticky card!</p>
-            <p class="card-text"><small class="text-muted">Time is {{ dateToString(Date.now()) }}</small></p>
-          </div>
-        </div>
+        <card class="card-outline-success" :title="'Hello!'" :text="'This is our fixed card!'" :footer="'Added on ' + dateToString(Date.now())"></card>
 
-        <div class="card p-4" v-for="message in messages" v-bind:key="message.id">
-          <div class="card-block">
-            <h5 class="card-title">{{ message.title }}</h5>
-            <p class="card-text">{{ message.text }}</p>
-            <p class="card-text"><small class="text-muted">Added on {{ dateToString(message.timestamp) }}</small></p>
-          </div>
-        </div>
+        <card v-for="message in messages" v-bind:key="message.id" class="card-outline-success" :title="message.text" :text="message.text" :footer="'Added on ' + dateToString(message.timestamp)"></card>
       </div>
     </div>
     <!-- <router-view/> -->
@@ -58,6 +46,9 @@ let db = app.database()
 let messagesRef = db.ref('messages')
 export default {
   name: 'app',
+  components: {
+    Card
+  },
   data () {
     return  {
       newMessage: {
